@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://catering-awards.ru/sitemap.xml
