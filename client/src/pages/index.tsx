@@ -8,6 +8,7 @@ import Partners from "@/components/elements/partners/partners";
 import Footer from "@/components/elements/footer/footer";
 
 import Head from "next/head";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
@@ -32,6 +33,30 @@ export default function Home() {
       <Partners />
       {/* <UpcomingEvent />
       <About /> */}
+
+      <section className="py-32 bg-gold-600 relative overflow-hidden">
+
+        <div className="max-w-[1200px] mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center justify-between gap-12 text-center md:text-left">
+          <div>
+            <h2 className="font-serif text-4xl md:text-5xl text-white mb-4 leading-tight">
+              Станьте частью истории<br />кейтеринг-индустрии
+            </h2>
+            <p className="text-gold-100/90 text-lg max-w-xl">
+              Заявите о себе, получите признание экспертов и расширьте деловые связи на главной премии года.
+            </p>
+          </div>
+          <div className="shrink-0">
+            <Button
+              className="bg-white text-black/90 shadow-2xl"
+              size="lg"
+              variant="outline"
+              onClick={() => document.getElementById('registration')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              Подать заявку
+            </Button>
+          </div>
+        </div>
+      </section>
 
       <Footer />
     </div>

@@ -1,121 +1,86 @@
-import Section from "@/components/ui/section";
-import SectionHeader from "@/components/elements/section_header/section_header";
-import { ArrowUpRight, Calendar, Play } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
-import { PHOTOS, VIDEOS } from "@/shared/content/content";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { useState, useEffect } from "react";
-import "@fancyapps/ui/dist/fancybox/fancybox.css";
+import { Camera, ExternalLink } from "lucide-react";
+import SectionHeader from "../section_header/section_header";
+import { useState } from "react";
+import { PHOTOS } from "@/shared/content/content";
+import Link from "next/link";
+import Section from "@/components/ui/section";
 
 const Gallery = () => {
-    const years = [2024, 2023, 2022];
-    const [selectedYear, setSelectedYear] = useState(2024);
+    // Use PHOTOS data but pretend they are album covers linked to VK
+    const galleryItems = PHOTOS.map((photo) => ({
+        year: photo.year,
+        link: photo.link,
+        image: photo.imageUrl,
+        label: "Смотреть фотоотчет",
+    }));
 
-    const yearImages = PHOTOS.filter(p => p.year === selectedYear);
-    const displayImages = yearImages.length > 0 ? yearImages.slice(0, 3) : PHOTOS.slice(0, 3);
-
-    useEffect(() => {
-        const loadFancybox = async () => {
-            const { Fancybox } = await import("@fancyapps/ui");
-            Fancybox.bind("[data-fancybox]", {
-                // Your custom options
-            });
-        };
-
-        loadFancybox();
-
-        return () => {
-            // We need to clean up. Since we don't have the class reference synchronously, 
-            // we can rely on Fancybox checking if it's there or just importing it again to destroy if needed,
-            // but usually Fancybox.destroy() is static. 
-            // To be safe and clean, we can import it again or just suppress if it's not crucial. 
-            // However, strictly speaking, binding adds event listeners. 
-            // The cleanest way is to import it here too or store the class ref.
-            import("@fancyapps/ui").then(({ Fancybox }) => {
-                Fancybox.destroy();
-            });
-        };
-    }, []);
+    const [hoveredImage, setHoveredImage] = useState<string | null>(null);
 
     return (
-        <Section className="bg-[#080808] h-full" id="gallery">
-            <div className="flex flex-col items-center mb-12">
-                <h2 className="font-serif uppercase text-4xl text-white mb-8">Архив Премии</h2>
+        <Section className="bg-[#080808] relative">
+            <div className="max-w-4xl mx-auto text-center">
+                <SectionHeader title="Фотоархив" subtitle="История ярких моментов церемоний прошлых лет" align="center" />
 
-                {/* Year Tabs */}
-                <div className="flex gap-2 p-1 bg-white/5 rounded-full overflow-hidden">
-                    {years.map((year) => (
-                        <button
-                            key={year}
-                            onClick={() => setSelectedYear(year)}
-                            className={`
-                px-8 py-3 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-500
-                ${selectedYear === year ? 'bg-gold-500 text-black shadow-lg shadow-gold-500/20' : 'text-neutral-500 hover:text-white hover:bg-white/5'}
-              `}
+                <div className="flex flex-col items-center gap-4 mt-12 relative z-10">
+                    {galleryItems.map((item) => (
+                        <Link
+                            key={item.year}
+                            href={item.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group relative w-full max-w-2xl py-8 border-b border-white/10 flex items-center justify-between hover:border-gold-500/50 transition-colors"
+                            onMouseEnter={() => setHoveredImage(item.image)}
+                            onMouseLeave={() => setHoveredImage(null)}
                         >
-                            {year}
-                        </button>
+                            <div className="flex items-center gap-8">
+                                <span className="font-serif text-5xl md:text-6xl text-white group-hover:text-gold-400 transition-colors duration-300">
+                                    {item.year}
+                                </span>
+                                <span className="hidden md:inline-flex px-3 py-1 rounded-full border border-white/20 text-xs text-neutral-400 uppercase tracking-widest group-hover:bg-white/10">
+                                    ВКонтакте
+                                </span>
+                            </div>
+
+                            <div className="flex items-center gap-4 text-neutral-500 group-hover:text-white transition-colors">
+                                <span className="text-xs uppercase tracking-widest hidden sm:inline-block">{item.label}</span>
+                                <ExternalLink className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+                            </div>
+                        </Link>
                     ))}
                 </div>
             </div>
 
-            <AnimatePresence mode="wait">
-                <motion.div
-                    key={selectedYear}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{ duration: 0.5 }}
-                    className="grid md:grid-cols-3 gap-6"
-                >
-                    {/* Large Featured Image */}
-                    {displayImages[0] && (
-                        <a
-                            href={displayImages[0].imageUrl}
-                            data-fancybox={`gallery-${selectedYear}`}
-                            className="md:col-span-2 h-full relative group overflow-hidden bg-neutral-900 cursor-pointer block"
-                        >
-                            <img src={displayImages[0].imageUrl} alt="Event" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-80 group-hover:opacity-100" />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-80"></div>
-                            <div className="absolute bottom-8 left-8">
-                                <div className="flex items-center gap-3 mb-3">
-                                    <Calendar className="w-4 h-4 text-gold-500" />
-                                    <span className="text-gold-400 text-xs uppercase tracking-widest">{selectedYear}</span>
-                                </div>
-                                <h3 className="text-white font-serif text-3xl uppercase max-w-md leading-tight">Церемония награждения и Гала-ужин</h3>
+            {/* Floating Preview Image */}
+            <AnimatePresence>
+                {hoveredImage && (
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
+                        animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                        exit={{ opacity: 0, scale: 0.8, rotate: 5 }}
+                        transition={{ duration: 0.2 }}
+                        className="fixed pointer-events-none z-20 hidden md:block"
+                        style={{
+                            top: '50%',
+                            left: '50%',
+                            marginLeft: '250px', // Offset from center
+                            marginTop: '-150px'
+                        }}
+                    >
+                        <div className="w-[300px] h-[200px] rounded-lg overflow-hidden border-4 border-white shadow-2xl relative">
+                            <img
+                                src={hoveredImage}
+                                alt="Preview"
+                                className="w-full h-full object-cover"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                            <div className="absolute bottom-3 left-3 flex items-center gap-2 text-white/90">
+                                <Camera size={16} />
+                                <span className="text-[10px] uppercase tracking-wider">Превью</span>
                             </div>
-                        </a>
-                    )}
-
-                    {/* Side Stack */}
-                    <div className="grid grid-rows-2 gap-6 h-full">
-                        {displayImages[1] && (
-                            <a
-                                href={displayImages[1].imageUrl}
-                                data-fancybox={`gallery-${selectedYear}`}
-                                className="relative group overflow-hidden bg-neutral-900 cursor-pointer block"
-                            >
-                                <img src={displayImages[1].imageUrl} alt="Details" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-100" />
-                                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                    <Button variant="outline" size="sm" className="backdrop-blur-md">Смотреть фото</Button>
-                                </div>
-                            </a>
-                        )}
-                        {displayImages[2] && (
-                            <a
-                                href={displayImages[2].imageUrl}
-                                data-fancybox={`gallery-${selectedYear}`}
-                                className="relative group overflow-hidden bg-neutral-900 cursor-pointer block"
-                            >
-                                <img src={displayImages[2].imageUrl} alt="Details" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-100" />
-                                <div className="absolute bottom-4 right-4 p-3 bg-black/50 backdrop-blur-md rounded-full border border-white/10">
-                                    <ArrowUpRight className="w-4 h-4 text-white" />
-                                </div>
-                            </a>
-                        )}
-                    </div>
-                </motion.div>
+                        </div>
+                    </motion.div>
+                )}
             </AnimatePresence>
         </Section>
     );

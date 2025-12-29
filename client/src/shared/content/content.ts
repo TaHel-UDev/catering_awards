@@ -35,6 +35,23 @@ export const PAST_WINNERS: Winner[] = [
             { title: "Кейтеринг года", company: "Event Catering" },
             { title: "Лучший сервис", company: "Diamond Service" },
             { title: "Прорыв года", company: "Fusion Taste" },
+            { title: "Лучший кейтеринг масштабных мероприятий", company: "Mega Events Catering" },
+            { title: "Лучший премиальный кейтеринг", company: "Royal Service" },
+            { title: "Кейтеринг года: Москва", company: "Capital Taste" },
+            { title: "Кейтеринг года: Санкт-Петербург", company: "North Venice Catering" },
+            { title: "Лучший свадебный кейтеринг", company: "Love & Food" },
+            { title: "Лучший корпоративный кейтеринг", company: "BizLunch Pro" },
+            { title: "Лучший выездной бар", company: "Shake It Up" },
+            { title: "Лучшая концепция подачи", company: "Art of Serving" },
+            { title: "Лучший эко-кейтеринг", company: "Green Leaf" },
+            { title: "Лучший кейтеринг на спортивных мероприятиях", company: "Sport Food" },
+            { title: "Лучший детский кейтеринг", company: "Happy Kids" },
+            { title: "Лучший кофе-брейк", company: "Morning Aroma" },
+            { title: "Лучший сервис доставки", company: "Express Gourmet" },
+            { title: "Самое креативное меню", company: "Chef's Fantasy" },
+            { title: "Лучший персонал", company: "Service Elite" },
+            { title: "Выбор гостей", company: "People's Choice Catering" },
+            { title: "Лучший национальный кейтеринг", company: "Russian Tradition" }
         ]
     },
 ];
@@ -43,12 +60,6 @@ export const PHOTOS: MediaItem[] = [
     { id: 'p1', year: 2023, imageUrl: 'https://picsum.photos/id/431/600/600', link: '#' },
     { id: 'p2', year: 2023, imageUrl: 'https://picsum.photos/id/338/600/600', link: '#' },
     { id: 'p3', year: 2023, imageUrl: 'https://picsum.photos/id/225/600/600', link: '#' },
-    { id: 'p4', year: 2024, imageUrl: 'https://picsum.photos/id/101/600/600', link: '#' },
-    { id: 'p5', year: 2024, imageUrl: 'https://picsum.photos/id/102/600/600', link: '#' },
-    { id: 'p6', year: 2024, imageUrl: 'https://picsum.photos/id/103/600/600', link: '#' },
-    { id: 'p7', year: 2022, imageUrl: 'https://picsum.photos/id/104/600/600', link: '#' },
-    { id: 'p8', year: 2022, imageUrl: 'https://picsum.photos/id/106/600/600', link: '#' },
-    { id: 'p9', year: 2022, imageUrl: 'https://picsum.photos/id/107/600/600', link: '#' },
 ];
 
 export const VIDEOS: MediaItem[] = [
