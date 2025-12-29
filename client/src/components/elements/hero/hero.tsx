@@ -12,7 +12,7 @@ const Hero = () => {
 
             <HeroContent />
 
-            <HeroBottom />
+            {/* <HeroBottom /> */}
         </div>
     );
 };

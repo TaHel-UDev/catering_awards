@@ -30,32 +30,25 @@ export const PARTICIPATION_BENEFITS: FeaturePoint[] = [
 
 export const PAST_WINNERS: Winner[] = [
     {
-        year: 2023,
+        year: 2025,
         categories: [
             { title: "Кейтеринг года", company: "Event Catering" },
             { title: "Лучший сервис", company: "Diamond Service" },
             { title: "Прорыв года", company: "Fusion Taste" },
         ]
     },
-    {
-        year: 2022,
-        categories: [
-            { title: "Кейтеринг года", company: "Royal Banquet" },
-            { title: "Лучшее меню", company: "Gourmet Masters" },
-        ]
-    },
-    {
-        year: 2021,
-        categories: [
-            { title: "Кейтеринг года", company: "Prime Catering" },
-        ]
-    }
 ];
 
 export const PHOTOS: MediaItem[] = [
     { id: 'p1', year: 2023, imageUrl: 'https://picsum.photos/id/431/600/600', link: '#' },
     { id: 'p2', year: 2023, imageUrl: 'https://picsum.photos/id/338/600/600', link: '#' },
     { id: 'p3', year: 2023, imageUrl: 'https://picsum.photos/id/225/600/600', link: '#' },
+    { id: 'p4', year: 2024, imageUrl: 'https://picsum.photos/id/101/600/600', link: '#' },
+    { id: 'p5', year: 2024, imageUrl: 'https://picsum.photos/id/102/600/600', link: '#' },
+    { id: 'p6', year: 2024, imageUrl: 'https://picsum.photos/id/103/600/600', link: '#' },
+    { id: 'p7', year: 2022, imageUrl: 'https://picsum.photos/id/104/600/600', link: '#' },
+    { id: 'p8', year: 2022, imageUrl: 'https://picsum.photos/id/106/600/600', link: '#' },
+    { id: 'p9', year: 2022, imageUrl: 'https://picsum.photos/id/107/600/600', link: '#' },
 ];
 
 export const VIDEOS: MediaItem[] = [

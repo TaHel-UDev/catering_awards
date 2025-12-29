@@ -14,7 +14,7 @@ const Footer = () => (
                 <div>
                     <h4 className="text-white text-xs uppercase tracking-widest mb-6">Навигация</h4>
                     <ul className="space-y-4 text-sm text-neutral-400">
-                        <li><Link href="#about" className="hover:text-gold-400 transition-colors">О премии</Link></li>
+                        {/* <li><Link href="#about" className="hover:text-gold-400 transition-colors">О премии</Link></li> */}
                         <li><Link href="#winners" className="hover:text-gold-400 transition-colors">Номинанты</Link></li>
                         <li><Link href="#gallery" className="hover:text-gold-400 transition-colors">Галерея</Link></li>
                         <li><Link href="#contacts" className="hover:text-gold-400 transition-colors">Контакты</Link></li>

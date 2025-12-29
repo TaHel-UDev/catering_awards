@@ -1,13 +1,13 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
-import { Manrope, Cormorant_Garamond } from "next/font/google";
+import { Manrope, Jost } from "next/font/google";
 
 const manrope = Manrope({
   subsets: ["latin", "cyrillic"],
   variable: "--font-sans",
 });
 
-const cormorant = Cormorant_Garamond({
+const jost = Jost({
   subsets: ["latin", "cyrillic"],
   weight: ["300", "400", "500", "600", "700"],
   style: ["normal", "italic"],
@@ -16,7 +16,7 @@ const cormorant = Cormorant_Garamond({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <div className={`${manrope.variable} ${cormorant.variable} font-sans`}>
+    <div className={`${manrope.variable} ${jost.variable} font-sans`}>
       <Component {...pageProps} />
     </div>
   );

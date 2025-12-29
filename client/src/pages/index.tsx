@@ -26,12 +26,13 @@ export default function Home() {
         <meta property="og:image" content="/static/og-image.jpg" />
       </Head>
       <Hero />
-      <UpcomingEvent />
-      <About />
-      <Winners />
       <Registrations />
+      <Winners />
       <Gallery />
       <Partners />
+      {/* <UpcomingEvent />
+      <About /> */}
+
       <Footer />
     </div>
   );
