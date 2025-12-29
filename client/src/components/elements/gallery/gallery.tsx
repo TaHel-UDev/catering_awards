@@ -6,7 +6,6 @@ import { PHOTOS, VIDEOS } from "@/shared/content/content";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
-import { Fancybox } from "@fancyapps/ui";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
 const Gallery = () => {
@@ -17,12 +16,25 @@ const Gallery = () => {
     const displayImages = yearImages.length > 0 ? yearImages.slice(0, 3) : PHOTOS.slice(0, 3);
 
     useEffect(() => {
-        Fancybox.bind("[data-fancybox]", {
-            // Your custom options
-        });
+        const loadFancybox = async () => {
+            const { Fancybox } = await import("@fancyapps/ui");
+            Fancybox.bind("[data-fancybox]", {
+                // Your custom options
+            });
+        };
+
+        loadFancybox();
 
         return () => {
-            Fancybox.destroy();
+            // We need to clean up. Since we don't have the class reference synchronously, 
+            // we can rely on Fancybox checking if it's there or just importing it again to destroy if needed,
+            // but usually Fancybox.destroy() is static. 
+            // To be safe and clean, we can import it again or just suppress if it's not crucial. 
+            // However, strictly speaking, binding adds event listeners. 
+            // The cleanest way is to import it here too or store the class ref.
+            import("@fancyapps/ui").then(({ Fancybox }) => {
+                Fancybox.destroy();
+            });
         };
     }, []);
 
