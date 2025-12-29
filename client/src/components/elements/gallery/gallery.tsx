@@ -18,7 +18,7 @@ const Gallery = () => {
     const [hoveredImage, setHoveredImage] = useState<string | null>(null);
 
     return (
-        <Section className="bg-[#080808] relative">
+        <Section className="bg-[#080808] relative" id="gallery">
             <div className="max-w-4xl mx-auto text-center">
                 <SectionHeader title="Фотоархив" subtitle="История ярких моментов церемоний прошлых лет" align="center" />
 

@@ -11,7 +11,7 @@ const Winners = () => {
     const [expanded, setExpanded] = useState(false);
 
     return (
-        <Section>
+        <Section id="winners">
             <div className="grid lg:grid-cols-12 gap-12 items-start">
                 <div className="lg:col-span-4 lg:sticky top-24">
                     <SectionHeader
