@@ -15,7 +15,7 @@ const Footer = () => (
                     <h4 className="text-white text-xs uppercase tracking-widest mb-6">Навигация</h4>
                     <ul className="space-y-4 text-sm text-neutral-400">
                         {/* <li><Link href="#about" className="hover:text-gold-400 transition-colors">О премии</Link></li> */}
-                        <li><Link href="#winners" className="hover:text-gold-400 transition-colors">Номинанты</Link></li>
+                        <li><Link href="#winners" className="hover:text-gold-400 transition-colors">Лауреаты</Link></li>
                         <li><Link href="#gallery" className="hover:text-gold-400 transition-colors">Галерея</Link></li>
                         <li><Link href="#contacts" className="hover:text-gold-400 transition-colors">Контакты</Link></li>
                     </ul>
@@ -24,9 +24,8 @@ const Footer = () => (
                 <div>
                     <h4 className="text-white text-xs uppercase tracking-widest mb-6">Контакты</h4>
                     <ul className="space-y-4 text-sm text-neutral-400">
-                        <li><Link href="tel:+79990000000" className="hover:text-gold-400 transition-colors">+7 (999) 000-00-00</Link></li>
-                        <li><Link href="mailto:info@cateringawards.ru" className="hover:text-gold-400 transition-colors">info@cateringawards.ru</Link></li>
-                        <li><Link href="https://yandex.ru/maps/111/moscow/" target="_blank" rel="noopener noreferrer" className="hover:text-gold-400 transition-colors">Москва, Россия</Link></li>
+                        <li><Link href="tel:+79778922353" className="hover:text-gold-400 transition-colors">+7 (977) 892-23-53</Link></li>
+                        <li><Link href="mailto:info@cateringconsulting.ru" className="hover:text-gold-400 transition-colors">info@cateringconsulting.ru</Link></li>
                     </ul>
                 </div>
             </div>

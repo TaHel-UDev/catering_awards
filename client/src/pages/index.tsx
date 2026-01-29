@@ -1,9 +1,10 @@
 import Hero from "@/components/elements/hero/hero";
-import UpcomingEvent from "@/components/elements/upcoming_event/upcoming_event";
-import About from "@/components/elements/about/about";
+
+
 import Winners from "@/components/elements/winners/winners";
 import Registrations from "@/components/elements/registrations/registrations";
 import Gallery from "@/components/elements/gallery/gallery";
+import Reviews from "@/components/elements/reviews/reviews";
 import Partners from "@/components/elements/partners/partners";
 import Footer from "@/components/elements/footer/footer";
 
@@ -30,6 +31,7 @@ export default function Home() {
       <Registrations />
       <Winners />
       <Gallery />
+      <Reviews />
       <Partners />
       {/* <UpcomingEvent />
       <About /> */}

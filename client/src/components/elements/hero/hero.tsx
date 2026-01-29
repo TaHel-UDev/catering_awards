@@ -34,11 +34,11 @@ const Hero = () => {
 
                         <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-8 justify-center items-center">
                             <Button asChild size="lg">
-                                <Link href="/form">Подать заявку</Link>
+                                <Link href="/">Подать заявку</Link>
                             </Button>
 
                             <Button asChild variant="ghost" onClick={() => setIsModalOpen(true)}>
-                                <Link href="#about" className="border-b border-gold-400/30 hover:border-gold-400 transition-colors">
+                                <Link href="/" className="border-b border-gold-400/30 hover:border-gold-400 transition-colors">
                                     Узнать больше
                                 </Link>
                             </Button>

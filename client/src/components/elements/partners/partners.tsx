@@ -1,9 +1,9 @@
 import Section from "@/components/ui/section";
-import { motion } from "framer-motion";
+
 import { PARTNERS_DATA } from "@/shared/content/content";
 import SectionHeader from "../section_header/section_header";
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+
+
 
 
 const Partners = () => {

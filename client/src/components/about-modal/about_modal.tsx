@@ -1,4 +1,4 @@
-import { GOALS, HERO_TEXT } from "@/shared/content/content";
+import { GOALS } from "@/shared/content/content";
 import { AnimatePresence } from "framer-motion";
 import { motion } from "framer-motion";
 import { Button } from "../ui/button";
@@ -34,22 +34,19 @@ const AboutModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
               <div className="hidden md:block w-1/3 bg-neutral-900 relative overflow-hidden">
                 <div className="absolute inset-0 bg-[url('https://picsum.photos/id/431/600/800')] bg-cover bg-center opacity-40"></div>
                 <div className="absolute inset-0 bg-gradient-to-t from-[#111] via-transparent to-transparent"></div>
-                <div className="absolute bottom-8 left-8 right-8">
-                  <h3 className="font-serif text-3xl text-gold-400 mb-2">Миссия Премии</h3>
-                  <p className="text-sm text-neutral-400">Развитие культуры кейтеринга и повышение стандартов качества.</p>
-                </div>
               </div>
 
               {/* Right Side - Content */}
               <div className="w-full md:w-2/3 p-8 md:p-12">
                 <h2 className="font-serif text-3xl md:text-4xl text-white mb-6 uppercase">О Премии</h2>
                 <p className="text-neutral-300 font-light leading-relaxed mb-8 border-l-2 border-gold-500 pl-4">
-                  {HERO_TEXT.description}
+                  Получение премии «Кейтеринг года» — это признание успеха компании в профессиональном сообществе, среди экспертов и коллег, клиентов и партнеров. А еще премия «Кейтеринг года» — это замечательная церемония награждения победителей, возможность обсудить актуальные вопросы в кругу профессионалов, и главное – приятно провести время с партнерами и коллегами.
+                  <br /><br />Данная профессиональная премия по-прежнему остается уникальным событием для кейтеринг-индустрии, поскольку ни на территории СНГ, ни в большинстве стран Европы кейтеринги до сих пор не имеют собственной ежегодной премии.
                 </p>
 
                 <div className="space-y-6">
                   <h4 className="text-xs uppercase tracking-widest text-neutral-500 mb-4">Что дает номинация</h4>
-                  <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="grid sm:grid-cols-1 gap-4">
                     {GOALS.map((goal, idx) => (
                       <div key={idx} className="flex items-start gap-3">
                         <goal.icon className="w-5 h-5 text-gold-500 shrink-0 mt-0.5" />

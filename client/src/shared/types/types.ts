@@ -2,6 +2,9 @@ import { LucideIcon } from 'lucide-react';
 
 export interface Winner {
     year: number;
+    description?: string;
+    introText?: string;
+    specialNomination?: string;
     categories: {
         title: string;
         company: string;
@@ -27,6 +30,15 @@ export interface FeaturePoint {
 export interface MediaItem {
     id: string;
     year: number;
-    imageUrl: string;
+    title: string;
+    imageUrl?: string;
     link: string;
+}
+
+export interface Review {
+    id: string;
+    name: string;
+    company: string;
+    city: string;
+    text: string;
 }
