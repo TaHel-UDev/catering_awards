@@ -8,16 +8,22 @@ import { Award, ChevronDown, ChevronUp, Trophy } from "lucide-react";
 import { PAST_WINNERS } from "@/shared/content/content";
 import { Button } from "@/components/ui/button";
 
+const MOBILE_CARDS_VISIBLE = 4;
+
 const Winners = () => {
     const latestWinners = PAST_WINNERS[0];
     const [expanded, setExpanded] = useState(false);
+    const [mobileCardsExpanded, setMobileCardsExpanded] = useState(false);
+    const categories = latestWinners.categories;
+    const visibleOnMobile = mobileCardsExpanded ? categories : categories.slice(0, MOBILE_CARDS_VISIBLE);
+    const hasMoreOnMobile = categories.length > MOBILE_CARDS_VISIBLE;
 
     return (
         <Section id="winners">
             <div className="grid lg:grid-cols-12 gap-12 items-start">
                 <div className="lg:col-span-4 lg:sticky top-24">
                     <SectionHeader
-                        title="Лауреаты"
+                        title="Победители"
                         subtitle="Лучшие компании по итогам прошедшего года"
                     />
                     <div className="p-8 border border-gold-500/20 bg-gold-500/5 relative overflow-hidden">
@@ -26,7 +32,7 @@ const Winners = () => {
                         </div>
                         <div className="relative z-10">
                             <span className="block text-6xl font-serif text-gold-400 mb-2">{latestWinners.year}</span>
-                            <span className="text-sm uppercase tracking-widest text-gold-200">Год триумфа</span>
+                            {/* <span className="text-sm uppercase tracking-widest text-gold-200">Год триумфа</span> */}
                         </div>
                     </div>
                 </div>
@@ -67,25 +73,74 @@ const Winners = () => {
                                 )}
 
                                 <div className="space-y-4 mb-12">
-                                    {latestWinners.categories.map((cat, idx) => (
-                                        <motion.div
-                                            initial={{ opacity: 0, x: -20 }}
-                                            animate={{ opacity: 1, x: 0 }}
-                                            transition={{ delay: idx * 0.03 }}
-                                            key={idx}
-                                            className="group relative p-6 bg-white/[0.03] hover:bg-white/[0.06] transition-colors border-l-2 border-transparent hover:border-gold-500 flex flex-col md:flex-row items-start md:items-center gap-4 py-5"
-                                        >
-                                            <div className="flex-1">
-                                                <div className="text-xs text-neutral-500 uppercase tracking-widest mb-1 group-hover:text-gold-400 transition-colors">
-                                                    {cat.title}
+                                    {/* На мобиле — только первые N карточек, затем «Показать всех» */}
+                                    <div className="md:hidden space-y-4">
+                                        {visibleOnMobile.map((cat, idx) => (
+                                            <motion.div
+                                                initial={{ opacity: 0, x: -20 }}
+                                                animate={{ opacity: 1, x: 0 }}
+                                                transition={{ delay: idx * 0.03 }}
+                                                key={idx}
+                                                className="group relative p-6 bg-white/[0.03] hover:bg-white/[0.06] transition-colors border-l-2 border-transparent hover:border-gold-500 flex flex-col items-start gap-4 py-5"
+                                            >
+                                                <div className="flex-1 w-full">
+                                                    <div className="text-xs text-neutral-500 uppercase tracking-widest mb-1 group-hover:text-gold-400 transition-colors">
+                                                        {cat.title}
+                                                    </div>
+                                                    <div className="text-xl text-white font-serif leading-tight">
+                                                        {cat.company}
+                                                    </div>
                                                 </div>
-                                                <div className="text-xl md:text-2xl text-white font-serif leading-tight">
-                                                    {cat.company}
-                                                </div>
+                                                <Award className="w-6 h-6 text-gold-500/20 group-hover:text-gold-500 transition-colors shrink-0" />
+                                            </motion.div>
+                                        ))}
+                                        {hasMoreOnMobile && !mobileCardsExpanded && (
+                                            <div className="pt-2 flex justify-center">
+                                                <Button
+                                                    variant="outline"
+                                                    size="sm"
+                                                    onClick={() => setMobileCardsExpanded(true)}
+                                                    className="border-gold-500/30 text-gold-400 hover:bg-gold-500/10"
+                                                >
+                                                    Показать всех победителей ({categories.length}) <ChevronDown className="ml-2 w-4 h-4" />
+                                                </Button>
                                             </div>
-                                            <Award className="w-6 h-6 text-gold-500/20 group-hover:text-gold-500 transition-colors shrink-0" />
-                                        </motion.div>
-                                    ))}
+                                        )}
+                                        {hasMoreOnMobile && mobileCardsExpanded && (
+                                            <div className="pt-2 flex justify-center">
+                                                <Button
+                                                    variant="ghost"
+                                                    size="sm"
+                                                    onClick={() => setMobileCardsExpanded(false)}
+                                                    className="text-neutral-500 hover:text-white"
+                                                >
+                                                    Свернуть <ChevronUp className="ml-2 w-4 h-4" />
+                                                </Button>
+                                            </div>
+                                        )}
+                                    </div>
+                                    {/* На планшете и десктопе — полный список */}
+                                    <div className="hidden md:block space-y-4">
+                                        {categories.map((cat, idx) => (
+                                            <motion.div
+                                                initial={{ opacity: 0, x: -20 }}
+                                                animate={{ opacity: 1, x: 0 }}
+                                                transition={{ delay: idx * 0.03 }}
+                                                key={idx}
+                                                className="group relative p-6 bg-white/[0.03] hover:bg-white/[0.06] transition-colors border-l-2 border-transparent hover:border-gold-500 flex flex-col md:flex-row items-start md:items-center gap-4 py-5"
+                                            >
+                                                <div className="flex-1">
+                                                    <div className="text-xs text-neutral-500 uppercase tracking-widest mb-1 group-hover:text-gold-400 transition-colors">
+                                                        {cat.title}
+                                                    </div>
+                                                    <div className="text-xl md:text-2xl text-white font-serif leading-tight">
+                                                        {cat.company}
+                                                    </div>
+                                                </div>
+                                                <Award className="w-6 h-6 text-gold-500/20 group-hover:text-gold-500 transition-colors shrink-0" />
+                                            </motion.div>
+                                        ))}
+                                    </div>
                                 </div>
 
                                 {latestWinners.specialNomination && (

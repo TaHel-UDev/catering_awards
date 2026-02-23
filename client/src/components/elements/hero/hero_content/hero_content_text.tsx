@@ -5,7 +5,7 @@ import { HERO_TEXT } from "@/shared/content/content"
 const HeroContentText = () => {
     return (
         <>
-            <motion.h1 variants={fadeUp} className="font-serif text-[10vw] leading-[1.2] md:text-[4rem] lg:text-[6rem] text-white whitespace-nowrap mb-6">
+            <motion.h1 variants={fadeUp} className="font-serif text-[10vw] md:leading-[1.2] leading-[1.6] md:text-[4rem] lg:text-[6rem] text-white whitespace-nowrap mb-6">
                 <span className="block">
                     ПРЕМИЯ
                 </span>

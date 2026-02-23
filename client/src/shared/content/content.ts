@@ -95,27 +95,50 @@ export const VIDEOS: MediaItem[] = [];
 
 export const PARTNERS_DATA: PartnerCategory[] = [
     {
-        title: "Генеральные партнеры",
+        title: "Генеральный партнер",
         partners: [
-            { id: 'gp1', name: "Alpha Bank", logoUrl: "https://picsum.photos/id/20/200/100" },
-            { id: 'gp2', name: "Omega Events", logoUrl: "https://picsum.photos/id/26/200/100" },
-            { id: 'gp3', name: "Bounce", logoUrl: "https://picsum.photos/id/36/200/100" },
+            { id: 'gp1', name: "Генеральный партнер", logoUrl: "/logos/1.png", link: "https://4banket.ru/msk/" },
+        ]
+    },
+    // {
+    //     title: "Площадка",
+    //     partners: [
+    //         { id: 'venue1', name: "Площадка", link: "https://example.com" },
+    //     ]
+    // },
+    // {
+    //     title: "Организационный партнер",
+    //     partners: [
+    //         { id: 'org1', name: "Организационный партнер", link: "https://example.com" },
+    //     ]
+    // },
+    {
+        title: "При поддержке",
+        partners: [
+            { id: 'sup1', name: "Партнер 1", logoUrl: "/logos/sup1.png", link: "https://abcs.pro/ru" },
+            { id: 'sup2', name: "Партнер 2", logoUrl: "/logos/sup2.png", link: "https://золотойпазл.рф" },
+            { id: 'sup3', name: "Партнер 2", logoUrl: "/logos/sup3.png", link: "https://pirexpo.com" },
+            { id: 'sup4', name: "Партнер 2", logoUrl: "/logos/sup4.png", link: "https://corpmedia.ru" },
         ]
     },
     {
-        title: "Продуктовые партнеры",
+        title: "Партнеры",
         partners: [
-            { id: 'pp1', name: "Fine Foods", logoUrl: "https://picsum.photos/id/42/200/100" },
-            { id: 'pp2', name: "Drink Co", logoUrl: "https://picsum.photos/id/60/200/100" },
-            { id: 'pp3', name: "Sweet Life", logoUrl: "https://picsum.photos/id/75/200/100" },
+            { id: 'p1', name: "Партнер 1", logoUrl: "/logos/p1.png", link: "https://allrent.me" },
+            { id: 'p2', name: "Партнер 2", logoUrl: "/logos/p2.png", link: "https://horeca-staff.ru" },
+            { id: 'p3', name: "Партнер 3", logoUrl: "/logos/p3.png", link: "https://живея.рф" },
+            { id: 'p4', name: "Партнер 3", logoUrl: "/logos/p4.png", link: "https://www.ladogaspb.ru" },
+            { id: 'p5', name: "Партнер 3", logoUrl: "/logos/p5.png", link: "https://pro-interactive.ru" },
+            { id: 'p6', name: "Партнер 3", logoUrl: "/logos/p6.png", link: "https://www.pronline.ru" },
+            { id: 'p7', name: "Партнер 3", logoUrl: "/logos/p7.png", link: "https://eventfontan.ru" },
         ]
     },
     {
-        title: "Последние партнеры",
+        title: "Информационные партнеры Премии",
         partners: [
-            { id: 'lp1', name: "Decor Studio", logoUrl: "https://picsum.photos/id/119/200/100" },
-            { id: 'lp2', name: "Sound Pro", logoUrl: "https://picsum.photos/id/133/200/100" },
-            { id: 'lp3', name: "Light Masters", logoUrl: "https://picsum.photos/id/160/200/100" },
+            { id: 'info1', name: "Инфопартнер 1", logoUrl: "/logos/info1.png", link: "https://eventmarket.ru" },
+            { id: 'info2', name: "Инфопартнер 2", logoUrl: "/logos/info2.png", link: "https://event.ru" },
+            { id: 'info3', name: "Инфопартнер 2", logoUrl: "/logos/info3.png", link: "https://www.pischeblog.ru" },
         ]
     }
 ];

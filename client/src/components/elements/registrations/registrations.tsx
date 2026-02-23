@@ -64,9 +64,9 @@ const Registration = () => {
                     </div>
 
                     <div className="relative z-10 mt-auto">
-                        <div className="flex items-center gap-2 text-neutral-500 text-xs tracking-widest uppercase mb-4">
+                        {/* <div className="flex items-center gap-2 text-neutral-500 text-xs tracking-widest uppercase mb-4">
                             Доступно: 12 мест
-                        </div>
+                        </div> */}
                         <Button variant="primary" disabled fullWidth>Купить билет</Button>
                     </div>
                 </div>

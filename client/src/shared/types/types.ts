@@ -14,7 +14,10 @@ export interface Winner {
 export interface Partner {
     id: string;
     name: string;
-    logoUrl?: string; // Optional, using placeholders
+    /** URL логотипа (SVG или изображение) */
+    logoUrl?: string;
+    /** Ссылка с карточки партнёра */
+    link?: string;
 }
 
 export interface PartnerCategory {
