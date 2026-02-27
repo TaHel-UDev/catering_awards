@@ -6,6 +6,7 @@ import HeroContentLogo from "./hero_content/hero_content_logo";
 import HeroContentText from "./hero_content/hero_content_text";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { REGISTRATION_LINKS } from "@/shared/content/content";
 import { Button } from "@/components/ui/button";
 import { fadeUp } from "@/shared/animations/fade_up";
 import { staggerChildren } from "@/shared/animations/stagger_children";
@@ -34,7 +35,9 @@ const Hero = () => {
 
                         <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-8 justify-center items-center">
                             <Button asChild size="lg">
-                                <Link href="/">Подать заявку</Link>
+                                <Link href={REGISTRATION_LINKS.nominees} target="_blank" rel="noopener noreferrer">
+                                    Подать заявку
+                                </Link>
                             </Button>
 
                             <Button asChild variant="ghost" onClick={() => setIsModalOpen(true)}>

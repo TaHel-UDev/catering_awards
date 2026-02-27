@@ -1,7 +1,6 @@
 import { GOALS } from "@/shared/content/content";
 import { AnimatePresence } from "framer-motion";
 import { motion } from "framer-motion";
-import { Button } from "../ui/button";
 import { X } from "lucide-react";
 
 const AboutModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
@@ -56,9 +55,6 @@ const AboutModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
                   </div>
                 </div>
 
-                <div className="mt-12 pt-8 border-t border-white/10 flex justify-end">
-                  <Button onClick={onClose} variant="primary">Понятно</Button>
-                </div>
               </div>
             </div>
           </motion.div>

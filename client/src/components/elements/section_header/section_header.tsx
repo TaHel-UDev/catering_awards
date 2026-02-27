@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { DecorativeDiamond } from "../decorative_diamond";
 
 const SectionHeader = ({
     title,
@@ -13,18 +12,6 @@ const SectionHeader = ({
     large?: boolean
 }) => (
     <div className={`mb-6 lg:mb-20 ${align === 'center' ? 'text-center' : ''}`}>
-        {align === 'center' && (
-            <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="flex items-center justify-center gap-4 mb-6 opacity-50"
-            >
-                <div className="h-[1px] w-12 bg-gold-400"></div>
-                <DecorativeDiamond />
-                <div className="h-[1px] w-12 bg-gold-400"></div>
-            </motion.div>
-        )}
         <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}

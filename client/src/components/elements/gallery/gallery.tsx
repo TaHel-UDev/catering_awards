@@ -18,41 +18,42 @@ const Gallery = () => {
 
     return (
         <Section className="bg-[#080808] relative" id="gallery">
-            <div className="max-w-4xl mx-auto text-center">
+            <div className="max-w-2xl mx-auto text-center">
                 <SectionHeader title="Фотоархив" subtitle="История ярких моментов церемоний прошлых лет" align="center" />
 
-                <div className="flex flex-col items-center gap-4 mt-12 relative z-10">
+                <div className="flex flex-col items-center gap-0 mt-8 relative z-10">
                     {visiblePhotos.map((item) => (
                         <Link
                             key={item.id}
                             href={item.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group relative w-full max-w-4xl py-6 border-b border-white/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 md:gap-12 hover:border-gold-500/50 transition-colors"
+                            className="group relative w-full py-3 md:py-4 border-b border-white/5 flex flex-col md:flex-row items-start md:items-center justify-between gap-2 md:gap-6 hover:border-gold-500/30 transition-colors"
                         >
-                            <div className="flex items-center gap-8 md:gap-12 w-full">
-                                <span className="font-serif text-3xl md:text-5xl text-white/30 group-hover:text-gold-500/50 transition-colors duration-300 w-24 md:w-32 text-right shrink-0">
+                            <div className="flex items-center gap-4 md:gap-6 w-full">
+                                <span className="font-serif text-xl md:text-2xl text-white/25 group-hover:text-gold-500/40 transition-colors duration-300 w-14 md:w-20 text-right shrink-0">
                                     {item.year}
                                 </span>
-                                <span className="text-lg md:text-xl text-neutral-300 group-hover:text-white transition-colors text-left leading-tight">
+                                <span className="text-sm md:text-base text-neutral-400 group-hover:text-neutral-300 transition-colors text-left leading-tight">
                                     {item.title}
                                 </span>
                             </div>
 
-                            <div className="flex items-center gap-2 text-gold-500/70 group-hover:text-gold-400 transition-colors text-sm uppercase tracking-widest pl-32 md:pl-0 shrink-0 mt-4 md:mt-0">
+                            <div className="flex items-center gap-2 text-gold-500/50 group-hover:text-gold-400 transition-colors text-xs uppercase tracking-widest pl-20 md:pl-0 shrink-0">
                                 <span className="hidden md:inline">Смотреть</span>
                                 <span className="md:hidden">Открыть</span>
-                                <ExternalLink className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+                                <ExternalLink className="w-3 h-3 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
                             </div>
                         </Link>
                     ))}
                 </div>
 
-                <div className="mt-12">
+                <div className="mt-6">
                     <Button
                         onClick={() => setShowAll(!showAll)}
                         variant="outline"
-                        className="border-gold-500/30 text-gold-400 hover:bg-gold-500 hover:text-black hover:border-gold-500 min-w-[200px]"
+                        size="sm"
+                        className="border-gold-500/20 text-gold-500/80 hover:bg-gold-500/10 hover:text-gold-400 hover:border-gold-500/40 min-w-[160px]"
                     >
                         {showAll ? (
                             <>Свернуть <ChevronUp className="ml-2 w-4 h-4" /></>

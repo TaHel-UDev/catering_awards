@@ -1,23 +1,23 @@
 import Section from "@/components/ui/section";
 import { Sparkles, Ticket } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { NEXT_EVENT, PARTICIPATION_BENEFITS } from "@/shared/content/content";
+import Link from "next/link";
+import { NEXT_EVENT, PARTICIPATION_BENEFITS, REGISTRATION_LINKS } from "@/shared/content/content";
 
 const Registration = () => {
     return (
         <Section id="registration" className="relative z-20">
-            <div className="grid md:grid-cols-2 shadow-2xl shadow-black/50">
-                {/* Left Card - Nominees */}
-                <div className="relative min-h-[500px] p-10 md:p-16 border border-white/10 bg-[#080808] group overflow-hidden flex flex-col justify-between">
+            <div className="grid grid-cols-1 md:grid-cols-2 shadow-2xl shadow-black/50">
+                {/* Left on mobile, Right on PC - Nominees (Подать заявку) */}
+                <div className="relative min-h-[500px] p-10 md:p-16 border border-white/10 bg-[#0B0B0B] group overflow-hidden flex flex-col justify-between md:col-start-2">
                     <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gold-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                    <div className="absolute inset-0 bg-gold-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
 
                     <div className="relative z-10">
                         <div className="flex items-center gap-4 mb-8">
                             <div className="p-3 bg-white/5 rounded-full text-gold-500">
                                 <Sparkles className="w-6 h-6" />
                             </div>
-                            <span className="text-xs uppercase tracking-widest text-gold-500">Участникам</span>
+                            <span className="text-xs uppercase tracking-widest text-gold-500">Номинантам</span>
                         </div>
                         <h3 className="font-serif text-3xl md:text-4xl text-white mb-6 uppercase">Подать Заявку</h3>
                         <p className="text-neutral-400 font-light leading-relaxed max-w-sm mb-8">
@@ -34,40 +34,41 @@ const Registration = () => {
                     </div>
 
                     <div className="relative z-10 mt-auto">
-                        <div className="flex items-center gap-2 text-red-400 text-xs tracking-widest uppercase mb-4">
-                            <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
-                            Прием заявок закрыт
-                        </div>
-                        <Button variant="outline" fullWidth disabled>Заполнить анкету</Button>
+                        <Button asChild variant="primary" fullWidth>
+                            <Link href={REGISTRATION_LINKS.nominees} target="_blank" rel="noopener noreferrer">
+                                Заполнить анкету
+                            </Link>
+                        </Button>
                     </div>
                 </div>
 
-                {/* Right Card - Guests */}
-                <div className="relative min-h-[500px] p-10 md:p-16 bg-[#0B0B0B] border-y border-r border-white/10 group overflow-hidden flex flex-col justify-between">
+                {/* Right on mobile, Left on PC - Guests (Купить билет) */}
+                <div className="relative min-h-[500px] p-10 md:p-16 bg-[#0B0B0B] border-y md:border-l border-white/10 group overflow-hidden flex flex-col justify-between md:col-start-1 md:row-start-1">
                     <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
 
                     <div className="relative z-10">
                         <div className="flex items-center gap-4 mb-8">
-                            <div className="p-3 bg-white/5 rounded-full text-neutral-300">
+                            <div className="p-3 bg-white/5 rounded-full text-gold-500">
                                 <Ticket className="w-6 h-6" />
                             </div>
-                            <span className="text-xs uppercase tracking-widest text-neutral-500">Гостям</span>
+                            <span className="text-xs uppercase tracking-widest text-gold-500">Гостям</span>
                         </div>
                         <h3 className="font-serif text-3xl md:text-4xl text-white mb-6 uppercase">Купить Билет</h3>
-                        <p className="text-neutral-500 font-light leading-relaxed max-w-sm mb-8">
-                            Посетите церемонию награждения {NEXT_EVENT.date}. Изысканный ужин, шоу-программа и нетворкинг с лидерами.
+                        <p className="text-neutral-400 font-light leading-relaxed max-w-sm mb-8">
+                            Посетите церемонию награждения {NEXT_EVENT.date}. Нетворкинг с лидерами индустрии.
                         </p>
-                        <div className="p-4 bg-white/5 border border-white/5 mb-8">
+                        {/* <div className="mb-8">
                             <div className="text-xl text-white font-serif mb-1">{NEXT_EVENT.location}</div>
                             <div className="text-xs text-neutral-500 uppercase tracking-widest">Место проведения</div>
-                        </div>
+                        </div> */}
                     </div>
 
                     <div className="relative z-10 mt-auto">
-                        {/* <div className="flex items-center gap-2 text-neutral-500 text-xs tracking-widest uppercase mb-4">
-                            Доступно: 12 мест
-                        </div> */}
-                        <Button variant="primary" disabled fullWidth>Купить билет</Button>
+                        <Button asChild variant="primary" fullWidth>
+                            <Link href={REGISTRATION_LINKS.guests} target="_blank" rel="noopener noreferrer">
+                                Купить билет
+                            </Link>
+                        </Button>
                     </div>
                 </div>
             </div>

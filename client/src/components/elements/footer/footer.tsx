@@ -16,15 +16,15 @@ const Footer = () => (
                     <ul className="space-y-4 text-sm text-neutral-400">
                         {/* <li><Link href="#about" className="hover:text-gold-400 transition-colors">О премии</Link></li> */}
                         <li><Link href="#winners" className="hover:text-gold-400 transition-colors">Победители</Link></li>
-                        <li><Link href="#gallery" className="hover:text-gold-400 transition-colors">Галерея</Link></li>
-                        <li><Link href="#contacts" className="hover:text-gold-400 transition-colors">Контакты</Link></li>
+                        <li><Link href="#gallery" className="hover:text-gold-400 transition-colors">Фотоархив</Link></li>
+                        {/* <li><Link href="#contacts" className="hover:text-gold-400 transition-colors">Контакты</Link></li> */}
                     </ul>
                 </div>
 
                 <div>
                     <h4 className="text-white text-xs uppercase tracking-widest mb-6">Контакты</h4>
                     <ul className="space-y-4 text-sm text-neutral-400">
-                        <li><Link href="tel:+79778922353" className="hover:text-gold-400 transition-colors">+7 (977) 892-23-53</Link></li>
+                        {/* <li><Link href="tel:+79778922353" className="hover:text-gold-400 transition-colors">+7 (977) 892-23-53</Link></li> */}
                         <li><Link href="mailto:info@cateringconsulting.ru" className="hover:text-gold-400 transition-colors">info@cateringconsulting.ru</Link></li>
                     </ul>
                 </div>

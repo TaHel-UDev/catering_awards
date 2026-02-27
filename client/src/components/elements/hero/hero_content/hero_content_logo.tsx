@@ -13,7 +13,7 @@ const HeroContentLogo = () => {
                     alt="Logo"
                     width={300}
                     height={300}
-                    className="w-[80px] h-[80px]"
+                    className="w-[140px] h-[140px] md:w-[200px] md:h-[200px]"
                 />
             </Link>
             <span className="h-[1px] w-8 bg-gold-400/50"></span>

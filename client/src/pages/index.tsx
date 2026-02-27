@@ -9,7 +9,9 @@ import Partners from "@/components/elements/partners/partners";
 import Footer from "@/components/elements/footer/footer";
 
 import Head from "next/head";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { REGISTRATION_LINKS } from "@/shared/content/content";
 
 export default function Home() {
   return (
@@ -48,13 +50,10 @@ export default function Home() {
             </p>
           </div>
           <div className="shrink-0">
-            <Button
-              className="bg-white text-black/90 shadow-2xl"
-              size="lg"
-              variant="outline"
-              onClick={() => document.getElementById('registration')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              Подать заявку
+            <Button asChild className="bg-white text-black/90 shadow-2xl" size="lg" variant="outline">
+              <Link href={REGISTRATION_LINKS.nominees} target="_blank" rel="noopener noreferrer">
+                Подать заявку
+              </Link>
             </Button>
           </div>
         </div>
