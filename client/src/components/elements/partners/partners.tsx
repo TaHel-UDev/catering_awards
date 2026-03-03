@@ -4,17 +4,24 @@ import SectionHeader from "../section_header/section_header";
 import { cn } from "@/lib/utils";
 import type { Partner } from "@/shared/types/types";
 
-const LOGO_BOX = "h-14 w-24 sm:h-16 sm:w-28";
-const LOGO_BOX_LARGE = "h-24 w-40 sm:h-28 sm:w-52";
-
-const PartnerCell = ({ partner, isSingle = false }: { partner: Partner; isSingle?: boolean }) => {
-    const content = (
-        <div className="transition-all duration-300 w-full h-full flex items-center justify-center p-3 sm:p-4">
+/** Карточка партнёра — нейтральная «витрина» для логотипа (подходит для чёрных и белых PNG) */
+const PartnerCard = ({
+    partner,
+    isSingle = false,
+}: {
+    partner: Partner;
+    isSingle?: boolean;
+}) => {
+    const cardContent = (
+        <div className="flex-1 flex items-center justify-center min-h-0 min-w-0 p-4 sm:p-6">
             {partner.logoUrl ? (
                 <img
                     src={partner.logoUrl}
                     alt={partner.name}
-                    className={cn(isSingle ? LOGO_BOX_LARGE : LOGO_BOX, "object-contain object-center")}
+                    className={cn(
+                        "max-w-full max-h-full object-contain w-auto h-auto",
+                        partner.id !== "info3" && "grayscale invert brightness"
+                    )}
                 />
             ) : (
                 <span className="font-serif text-xs font-medium uppercase text-white/50 tracking-wider text-center">
@@ -24,60 +31,54 @@ const PartnerCell = ({ partner, isSingle = false }: { partner: Partner; isSingle
         </div>
     );
 
-    const cellClassName = cn(
-        "border-r border-b border-white/5 flex items-center justify-center group hover:bg-white/[0.02] transition-colors w-full",
-        isSingle ? "min-h-[120px] sm:min-h-[140px]" : "min-h-[72px] sm:min-h-[80px]"
+    const cardClassName = cn(
+        "h-28 border border-white/5 bg-[#171717] flex transition-all duration-300 group hover:bg-white/[0.05]",
+        // flex-basis: 2 cols mobile, 3 cols tablet, 4 cols desktop; для 1 партнёра — шире
+        isSingle
+            ? "flex-[0_1_calc(100%-0px)] min-w-[200px] max-w-[280px]"
+            : "flex-[0_1_calc(50%-12px)] md:flex-[0_1_calc(33.333%-16px)] lg:flex-[0_1_calc(25%-18px)] min-w-[140px]"
     );
 
     if (partner.link) {
         return (
             <a
-                key={partner.id}
                 href={partner.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={cellClassName}
+                className={cardClassName}
             >
-                {content}
+                {cardContent}
             </a>
         );
     }
 
-    return (
-        <div key={partner.id} className={cellClassName}>
-            {content}
-        </div>
-    );
+    return <div className={cardClassName}>{cardContent}</div>;
 };
 
 const Partners = () => {
     return (
-        <Section className="py-16 border-t border-white/5">
+        <Section className="border-t border-white/5 pb-6 md:pb-24">
             <div className="max-w-[1200px] mx-auto px-4">
-                <div className="flex flex-col md:flex-row justify-between gap-6">
-                    <SectionHeader title="Партнеры" />
+                <div className="w-full text-center">
+                    <SectionHeader title="Партнеры" align="center"/>
                 </div>
 
                 <div className="space-y-10 sm:space-y-12">
                     {PARTNERS_DATA.map((category) => {
                         const count = category.partners.length;
-                        const gridClass =
-                            count <= 1
-                                ? "grid grid-cols-1 border-t border-l border-white/5"
-                                : count === 2
-                                  ? "grid grid-cols-2 border-t border-l border-white/5"
-                                    : count === 3
-                                    ? "grid grid-cols-1 sm:grid-cols-3 border-t border-l border-white/5"
-                                    : "grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 border-t border-l border-white/5";
                         return (
                             <div key={category.title}>
-                                <h3 className="text-xs uppercase tracking-widest text-neutral-500 mb-4 sm:mb-5 pl-4 border-l-2 border-gold-500">
+                                <h3 className="text-2xs border-b border-gold-500 mb-4 pb-4 text-center uppercase tracking-widest text-white/80">
                                     {category.title}
                                 </h3>
 
-                                <div className={cn(gridClass, "w-full")}>
+                                <div className="flex flex-wrap justify-center gap-4 w-full">
                                     {category.partners.map((partner) => (
-                                        <PartnerCell key={partner.id} partner={partner} isSingle={count === 1} />
+                                        <PartnerCard
+                                            key={partner.id}
+                                            partner={partner}
+                                            isSingle={count === 1}
+                                        />
                                     ))}
                                 </div>
                             </div>

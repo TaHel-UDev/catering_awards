@@ -64,7 +64,7 @@ const Reviews = () => {
     const [expandedId, setExpandedId] = useState<string | null>(null);
     const [emblaRef, emblaApi] = useEmblaCarousel(
         {
-            loop: false,
+            loop: true,
             align: "start",
             containScroll: "trimSnaps",
         },
@@ -107,7 +107,7 @@ const Reviews = () => {
     const slideCount = scrollSnapList.length;
 
     return (
-        <Section className="bg-[#080808] relative" id="reviews">
+        <Section className="bg-[#080808] relative pb-6 md:pb-24" id="reviews">
             <div className="max-w-6xl mx-auto px-4 relative z-10">
                 <SectionHeader
                     title="Отзывы участников"

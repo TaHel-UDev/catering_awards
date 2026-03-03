@@ -99,12 +99,12 @@ export const PHOTOS: MediaItem[] = [
 export const VIDEOS: MediaItem[] = [];
 
 export const PARTNERS_DATA: PartnerCategory[] = [
-    {
-        title: "Генеральный партнер",
-        partners: [
-            { id: 'gp1', name: "Генеральный партнер", logoUrl: "/logos/1.png", link: "https://4banket.ru/msk/" },
-        ]
-    },
+    // {
+    //     title: "Генеральный партнер",
+    //     partners: [
+    //         { id: 'gp1', name: "Генеральный партнер", logoUrl: "/logos/1.png", link: "https://4banket.ru/msk/" },
+    //     ]
+    // },
     // {
     //     title: "Площадка",
     //     partners: [

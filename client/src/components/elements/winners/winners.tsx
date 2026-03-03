@@ -19,7 +19,7 @@ const Winners = () => {
     const hasMoreOnMobile = categories.length > MOBILE_CARDS_VISIBLE;
 
     return (
-        <Section id="winners">
+        <Section id="winners" className="pb-6 md:pb-24">
             <div className="grid lg:grid-cols-12 gap-12 items-start">
                 <div className="lg:col-span-4 lg:sticky top-24">
                     <SectionHeader

@@ -10,7 +10,7 @@ interface SectionProps {
 const Section: React.FC<SectionProps> = ({ children, className = "", id, noPadding = false }) => {
     return (
         <section id={id} className={`w-full relative z-10 ${className}`}>
-            <div className={`max-w-[1200px] mx-auto px-6 md:px-8 ${noPadding ? '' : 'py-6 md:py-32'}`}>
+            <div className={`max-w-[1200px] mx-auto px-6 md:px-8 ${noPadding ? '' : 'pt-6 md:pt-24'}`}>
                 {children}
             </div>
         </section>

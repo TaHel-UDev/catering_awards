@@ -54,9 +54,16 @@ const Registration = () => {
                             <span className="text-xs uppercase tracking-widest text-gold-500">Гостям</span>
                         </div>
                         <h3 className="font-serif text-3xl md:text-4xl text-white mb-6 uppercase">Купить Билет</h3>
-                        <p className="text-neutral-400 font-light leading-relaxed max-w-sm mb-8">
-                            Посетите церемонию награждения {NEXT_EVENT.date}. Нетворкинг с лидерами индустрии.
+                        <p className="text-neutral-400 font-light leading-relaxed max-w-sm mb-3">
+                            Посетите церемонию награждения {NEXT_EVENT.date}. Нетворкинг с лидерами индустрии. 
+                            {/* <br/> Место проведения:  */}
                         </p>
+                        {/* <ul className="space-y-3">
+                            <li className="flex items-center gap-3 text-sm text-neutral-500">
+                                <span className="w-1 h-1 bg-gold-500 rounded-full"></span>
+                                {NEXT_EVENT.location}
+                            </li>
+                        </ul> */}
                         {/* <div className="mb-8">
                             <div className="text-xl text-white font-serif mb-1">{NEXT_EVENT.location}</div>
                             <div className="text-xs text-neutral-500 uppercase tracking-widest">Место проведения</div>
