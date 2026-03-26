@@ -60,7 +60,7 @@ const Partners = () => {
         <Section className="border-t border-white/5 pb-6 md:pb-24">
             <div className="max-w-[1200px] mx-auto px-4">
                 <div className="w-full text-center">
-                    <SectionHeader title="Партнеры" align="center"/>
+                    <SectionHeader title="Партнеры" align="center" />
                 </div>
 
                 <div className="space-y-10 sm:space-y-12">

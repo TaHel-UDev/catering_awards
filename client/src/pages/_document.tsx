@@ -6,6 +6,7 @@ export default function Document() {
       <Head>
         {/* AutoSchema ONE-TIME STATIC MODE (CDN-only) */}
         <script
+          async
           src="https://www.autoschema.app/cdn/s.js"
           data-key="sk_59586a3406dc6b098df390f651b8cbdd"
           data-api="https://www.autoschema.app"
