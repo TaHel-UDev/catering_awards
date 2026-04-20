@@ -34,10 +34,15 @@ const Hero = () => {
                         <HeroContentText />
 
                         <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-8 justify-center items-center">
-                            <Button asChild size="lg">
-                                <Link href={REGISTRATION_LINKS.nominees} target="_blank" rel="noopener noreferrer">
-                                    Подать заявку
-                                </Link>
+                            <Button
+                                // asChild
+                                size="lg"
+                                disabled
+                            >
+                                {/* <Link href={REGISTRATION_LINKS.nominees} target="_blank" rel="noopener noreferrer"> */}
+                                {/* Подать заявку */}
+                                {/* </Link> */}
+                                Регистрация закрыта
                             </Button>
 
                             <Button asChild variant="ghost" onClick={() => setIsModalOpen(true)}>

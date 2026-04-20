@@ -34,10 +34,16 @@ const Registration = () => {
                     </div>
 
                     <div className="relative z-10 mt-auto">
-                        <Button asChild variant="primary" fullWidth>
-                            <Link href={REGISTRATION_LINKS.nominees} target="_blank" rel="noopener noreferrer">
+                        <Button
+                            // asChild
+                            variant="primary"
+                            fullWidth
+                            disabled
+                        >
+                            {/* <Link href={REGISTRATION_LINKS.nominees} target="_blank" rel="noopener noreferrer">
                                 Заполнить анкету
-                            </Link>
+                            </Link> */}
+                            Регистрация закрыта
                         </Button>
                     </div>
                 </div>
@@ -55,8 +61,8 @@ const Registration = () => {
                         </div>
                         <h3 className="font-serif text-3xl md:text-4xl text-white mb-6 uppercase">Купить Билет</h3>
                         <p className="text-neutral-400 font-light leading-relaxed max-w-sm mb-3">
-                            Посетите церемонию награждения {NEXT_EVENT.date}. Нетворкинг с лидерами индустрии. <br/>
-                            <br/> Место проведения: 
+                            Посетите церемонию награждения {NEXT_EVENT.date}. Нетворкинг с лидерами индустрии. <br />
+                            <br /> Место проведения:
                         </p>
                         <ul className="space-y-3">
                             <li className="flex items-center gap-3 text-sm text-neutral-500">
@@ -71,10 +77,16 @@ const Registration = () => {
                     </div>
 
                     <div className="relative z-10 mt-auto">
-                        <Button asChild variant="primary" fullWidth>
-                            <Link href={REGISTRATION_LINKS.guests} target="_blank" rel="noopener noreferrer">
+                        <Button
+                            // asChild
+                            variant="primary"
+                            fullWidth
+                            disabled
+                        >
+                            {/* <Link href={REGISTRATION_LINKS.guests} target="_blank" rel="noopener noreferrer">
                                 Купить билет
-                            </Link>
+                            </Link> */}
+                            Регистрация закрыта
                         </Button>
                     </div>
                 </div>

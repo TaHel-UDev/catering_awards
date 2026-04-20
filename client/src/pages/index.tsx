@@ -50,10 +50,17 @@ export default function Home() {
             </p>
           </div>
           <div className="shrink-0">
-            <Button asChild className="bg-white text-black/90 shadow-2xl" size="lg" variant="outline">
-              <Link href={REGISTRATION_LINKS.nominees} target="_blank" rel="noopener noreferrer">
+            <Button
+              // asChild
+              className="bg-white text-black/90 shadow-2xl"
+              size="lg"
+              variant="outline"
+              disabled
+            >
+              {/* <Link href={REGISTRATION_LINKS.nominees} target="_blank" rel="noopener noreferrer">
                 Подать заявку
-              </Link>
+              </Link> */}
+              Регистрация закрыта
             </Button>
           </div>
         </div>
